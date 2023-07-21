@@ -1,0 +1,18 @@
+#calc-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#button-container {
+    display: flex;
+}
+
+button {
+    height: 100px;
+    width: 100px;
+}
+
+.zero {
+    width: 200px;
+}
