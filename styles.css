@@ -9,10 +9,21 @@
 }
 
 button {
+    border-radius: 10px;
     height: 100px;
     width: 100px;
 }
 
 .zero {
     width: 200px;
+}
+
+.equals {
+    width: 200px;
+}
+
+.input {
+    height: 125px;
+    width: 500px;
+    text-size-adjust: 100px;
 }
