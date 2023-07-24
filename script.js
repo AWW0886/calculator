@@ -1,22 +1,23 @@
 const calculator = document.querySelector('#calc-container');
 const allButtons = document.querySelector("#all-buttons");
-//const numberButton = document.querySelectorAll('.number');
-//const operatorButton = calculator.querySelectorAll('.operator');
+//const buttonContainer = document.querySelector('#button-container')
+const numberButton = document.querySelectorAll('.number');
+const operatorButton = document.querySelectorAll('.operator');
 //const allClear = document.querySelector('.all-clear');
 //const deleteButton = calculator.querySelector('.delete');
 //const equalsButton = document.querySelector('.equals');
 const inputDisplay = document.querySelector('.input');
 //const resultDisplay = calculator.querySelector('.result');
 
-allButtons.addEventListener('click', e => {
-    //console.log('Button works!');
+numberButton.forEach(elem => elem.addEventListener('click', e => {
+    console.log('Button works!');
     //if (!e.target.closest('button'))
     //    return;
     //console.log(e.target.textContent);
     inputDisplay.textContent = e.target.textContent;
     //const key = e.target;
     //console.log(key.textContent);
-});
+}));
 
 
 //let a
