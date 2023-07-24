@@ -1,7 +1,17 @@
+body {
+    background-color: whitesmoke;
+}
+
 #calc-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    border: 2.5px solid slategrey;
+    border-radius: 10px;
+    width: 510px;
+    padding: 7.5px;
+    margin: auto;
 }
 
 #button-container {
@@ -10,20 +20,49 @@
 
 button {
     border-radius: 10px;
+    font-size: 24px;
     height: 100px;
     width: 100px;
+    margin: 1px;
 }
 
-.zero {
-    width: 200px;
+button:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+#zero {
+    width: 202px;
 }
 
 .equals {
-    width: 200px;
+    width: 202px;
 }
 
 .input {
-    height: 125px;
-    width: 500px;
-    text-size-adjust: 100px;
+    height: 40px;
+    width: 494px;
+    background-color: darkslategrey;
+    border-width: 2.5px 2.5px 1.25px 2.5px;
+    border-color: grey;
+    border-style: solid;
+    border-radius: 10px 10px 0 0;
+    font-size: 28px;
+    color: whitesmoke;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.result {
+    height: 90px;
+    width: 504px;
+    background-color: darkslategrey;
+    border-width: 1.25px 2.5px 2.5px 2.5px;
+    border-color: grey;
+    border-style: solid;
+    border-radius: 0 0 10px 10px;
+    font-size: 70px;
+    color: whitesmoke;
+    margin-bottom: 1px;
+    padding-top: 10px;
 }
