@@ -3,20 +3,34 @@ const allButtons = document.querySelector("#all-buttons");
 //const buttonContainer = document.querySelector('#button-container')
 const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
-//const allClear = document.querySelector('.all-clear');
+const allClear = document.querySelector('.all-clear');
 //const deleteButton = calculator.querySelector('.delete');
 //const equalsButton = document.querySelector('.equals');
 const inputDisplay = document.querySelector('.input');
 //const resultDisplay = calculator.querySelector('.result');
+//const type = key.dataset.type
 
 numberButton.forEach(elem => elem.addEventListener('click', e => {
-    console.log('Button works!');
+//allButtons.addEventListener('click', e => {
+    console.log('Number!');
     //if (!e.target.closest('button'))
     //    return;
     //console.log(e.target.textContent);
-    inputDisplay.textContent = e.target.textContent;
-    //const key = e.target;
-    //console.log(key.textContent);
+    //const type = key.dataset.type
+    if (inputDisplay.textContent === '0') {
+        inputDisplay.textContent = e.target.textContent;
+    } else {
+        inputDisplay.textContent = inputDisplay.textContent + e.target.textContent;
+    };
+}));
+//});
+
+//if (key.data.type === 'operator') {
+//    console.log('An operator!');
+//}
+
+operatorButton.forEach(elem => elem.addEventListener('click', e => {
+    console.log('Operator!');
 }));
 
 
