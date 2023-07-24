@@ -5,7 +5,7 @@ const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
 const allClear = document.querySelector('.all-clear');
 //const deleteButton = calculator.querySelector('.delete');
-//const equalsButton = document.querySelector('.equals');
+const equalsButton = document.querySelector('.equals');
 const inputDisplay = document.querySelector('.input');
 //const resultDisplay = calculator.querySelector('.result');
 //const type = key.dataset.type
@@ -16,23 +16,60 @@ numberButton.forEach(elem => elem.addEventListener('click', e => {
     //if (!e.target.closest('button'))
     //    return;
     //console.log(e.target.textContent);
-    //const type = key.dataset.type
+    //const key = e.target;
+    if (inputDisplay.textContent === '0') {
+        inputDisplay.textContent = e.target.textContent;
+    } else {
+        inputDisplay.textContent = inputDisplay.textContent + e.target.textContent;
+    };
+    //let firstOperand = inputDisplay.textContent;
+    //console.log(firstOperand);
+}));
+//});
+
+//if (key.classList.contains('operator')) {
+//    console.log('An operator!');
+//}
+
+operatorButton.forEach(elem => elem.addEventListener('click', e => {
+    console.log('Operator!');
+    //let firstOperand = inputDisplay.textContent;
+    //console.log(firstOperand);
     if (inputDisplay.textContent === '0') {
         inputDisplay.textContent = e.target.textContent;
     } else {
         inputDisplay.textContent = inputDisplay.textContent + e.target.textContent;
     };
 }));
-//});
 
-//if (key.data.type === 'operator') {
-//    console.log('An operator!');
-//}
+equalsButton.addEventListener('click', e => {
+    console.log('Equals!')
+    let equation = inputDisplay.textContent;
+    console.log(equation);
+    findOperands(equation);
+})
 
-operatorButton.forEach(elem => elem.addEventListener('click', e => {
-    console.log('Operator!');
-}));
+function findOperands(equation) {
+    equation = equation.split(' ');
+    console.log(equation)
+    //let operator = ['+', '-', 'x', '/'];
+    let firstOperand = equation[0];
+    console.log(firstOperand);
+    let secondOperand = equation[2];
 
+    //for (i = 0; i < 4; i++) {
+        //while(equation.includes(operator[i])) {
+    //        let operatorIndex = equation.findIndex(item => item === operator[i]);
+            //firstOperand = equation[operatorIndex - 1];
+            //console.log(firstOperand);
+    //        secondOperand = equation[operatorIndex + 1];
+            console.log(secondOperand);
+        //}
+    //}
+
+
+
+}
 
 //let a
 //let b
@@ -45,8 +82,3 @@ operatorButton.forEach(elem => elem.addEventListener('click', e => {
 //const multiply = (a, b) => a * b;
 
 //const divide = (a, b) => a / b;
-
-//function input() {
-//    document.getElementByClass('input').value =
-//    document.getElementByClass('button').value;
-//}
