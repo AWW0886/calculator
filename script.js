@@ -7,6 +7,7 @@ const allClear = document.querySelector('.all-clear');
 //const deleteButton = calculator.querySelector('.delete');
 const equalsButton = document.querySelector('.equals');
 const inputDisplay = document.querySelector('.input');
+const prevEquationDisplay = document.querySelector('.second-input');
 const resultDisplay = calculator.querySelector('.result');
 //const type = key.dataset.type
 
@@ -17,6 +18,10 @@ numberButton.forEach(elem => elem.addEventListener('click', e => {
     //    return;
     //console.log(e.target.textContent);
     //const key = e.target;
+    //if (resultDisplay.textContent === secondInput.textContent) {
+    //if (inputDisplay = equation) {
+    //    secondInput.textContent = secondInput.textContent + e.target.dataset.key;
+    //}
     if (inputDisplay.textContent === '0') {
         inputDisplay.textContent = e.target.dataset.key;
     } else {
@@ -92,9 +97,16 @@ function operate(firstOperand, operator, secondOperand) {
         resultDisplay.textContent = "Result too long!";
     }
     console.log(resultDisplay.textContent);
+    prevEquationDisplay.textContent = inputDisplay.textContent;
+    inputDisplay.textContent = resultDisplay.textContent;
+    //console.log(typeof resultDisplay.textContent);
+    //secondInput.textContent = resultDisplay.textContent;
+    //console.log(typeof secondInput.textContent);
     //inputDisplay.textContent = resultDisplay.textContent;
     //console.log(inputDisplay.textContent);
     //return resultDisplay.textContent;
+    //let equation = 0;
+    //console.log(equation);
     //equation[0] = resultDisplay.textContent;
     //console.log(equation[0]);
     //let newequation = equation.splice(3, 0);
@@ -108,6 +120,8 @@ function operate(firstOperand, operator, secondOperand) {
 allClear.addEventListener('click', e => {
     console.log('AC!');
     inputDisplay.textContent = '0';
+    prevEquationDisplay.textContent = ' ';
+    resultDisplay.textContent = ' ';
 })
 
 //const add = (a, b) => a + b;
