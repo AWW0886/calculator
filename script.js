@@ -7,7 +7,7 @@ const allClear = document.querySelector('.all-clear');
 //const deleteButton = calculator.querySelector('.delete');
 const equalsButton = document.querySelector('.equals');
 const inputDisplay = document.querySelector('.input');
-//const resultDisplay = calculator.querySelector('.result');
+const resultDisplay = calculator.querySelector('.result');
 //const type = key.dataset.type
 
 numberButton.forEach(elem => elem.addEventListener('click', e => {
@@ -47,15 +47,18 @@ equalsButton.addEventListener('click', e => {
     let equation = inputDisplay.textContent;
     console.log(equation);
     findOperands(equation);
+    //operate();
 })
 
 function findOperands(equation) {
     equation = equation.split(' ');
     console.log(equation)
     //let operator = ['+', '-', 'x', '/'];
-    let firstOperand = equation[0];
+    const firstOperand = equation[0];
     console.log(firstOperand);
-    let secondOperand = equation[2];
+    const operator = equation[1];
+    console.log(operator);
+    const secondOperand = equation[2];
 
     //for (i = 0; i < 4; i++) {
         //while(equation.includes(operator[i])) {
@@ -64,16 +67,27 @@ function findOperands(equation) {
             //console.log(firstOperand);
     //        secondOperand = equation[operatorIndex + 1];
             console.log(secondOperand);
+
+    let a = parseInt(firstOperand);
+    let b = parseInt(secondOperand);
+    if (operator === '+') {
+        console.log(a + b);
+        c = a + b;
+        console.log(c);
+        resultDisplay.textContent = a + b;
         //}
     //}
-
-
-
 }
 
-//let a
-//let b
-//let c
+//function operate(firstOperand, secondOperand) {
+//    parseInt(firstOperand);
+//    parseInt(secondOperand);
+//    if (operator === '+') {
+//        console.log(firstOperand + secondOperand);
+//    } else {
+//    console.log(typeof firstOperand)
+//    console.log(typeof secondOperand)
+//    }
 
 //const add = (a, b) => a + b;
 
@@ -82,3 +96,5 @@ function findOperands(equation) {
 //const multiply = (a, b) => a * b;
 
 //const divide = (a, b) => a / b;
+
+}
