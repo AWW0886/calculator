@@ -31,7 +31,7 @@ button:hover {
     color: white;
 }
 
-#zero {
+[data-key="0"] {
     width: 202px;
 }
 
