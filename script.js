@@ -4,12 +4,11 @@ const allButtons = document.querySelector("#all-buttons");
 const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
 const allClear = document.querySelector('.all-clear');
-//const deleteButton = calculator.querySelector('.delete');
+const deleteButton = calculator.querySelector('.delete');
 const equalsButton = document.querySelector('.equals');
 const inputDisplay = document.querySelector('.input');
 const prevEquationDisplay = document.querySelector('.second-input');
 const resultDisplay = calculator.querySelector('.result');
-//const type = key.dataset.type
 
 numberButton.forEach(elem => elem.addEventListener('click', e => {
 //allButtons.addEventListener('click', e => {
@@ -97,7 +96,7 @@ function operate(firstOperand, operator, secondOperand) {
         resultDisplay.textContent = "Result too long!";
     }
     console.log(resultDisplay.textContent);
-    prevEquationDisplay.textContent = inputDisplay.textContent;
+    prevEquationDisplay.textContent = (inputDisplay.textContent) + ' = ';
     inputDisplay.textContent = resultDisplay.textContent;
     //console.log(typeof resultDisplay.textContent);
     //secondInput.textContent = resultDisplay.textContent;
@@ -122,6 +121,18 @@ allClear.addEventListener('click', e => {
     inputDisplay.textContent = '0';
     prevEquationDisplay.textContent = ' ';
     resultDisplay.textContent = ' ';
+})
+
+deleteButton.addEventListener('click', e => {
+    console.log('DEL!');
+    let slice;
+    slice = inputDisplay.textContent.slice(-1);
+    console.log(slice);
+    if (slice === ' ') {
+        inputDisplay.textContent = inputDisplay.textContent.slice(0, -3)
+    } else {
+        inputDisplay.textContent = inputDisplay.textContent.slice(0, -1)
+    }
 })
 
 //const add = (a, b) => a + b;
