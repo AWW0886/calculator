@@ -54,8 +54,10 @@ button:hover {
 }
 
 .result {
+    display: flex;
+    justify-content: flex-end;
     height: 90px;
-    width: 504px;
+    width: 494px;
     background-color: darkslategrey;
     border-width: 1.25px 2.5px 2.5px 2.5px;
     border-color: grey;
@@ -65,4 +67,5 @@ button:hover {
     color: whitesmoke;
     margin-bottom: 1px;
     padding-top: 10px;
+    padding-right: 10px;
 }
