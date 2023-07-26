@@ -47,19 +47,20 @@ equalsButton.addEventListener('click', e => {
     let equation = inputDisplay.textContent;
     console.log(equation);
     findOperands(equation);
-})
+    //operate(firstOperand, operator, secondOperand);
+});
 
 function findOperands(equation) {
     equation = equation.split(' ');
     console.log(equation)
-    //let operator = ['+', '-', 'x', '/'];
     let firstOperand = equation[0];
     console.log(firstOperand);
     let operator = equation[1];
     console.log(operator);
     let secondOperand = equation[2];
     console.log(secondOperand);
-
+    operate(firstOperand, operator, secondOperand);
+}
     //for (i = 0; i < 4; i++) {
         //while(equation.includes(operator[i])) {
     //        let operatorIndex = equation.findIndex(item => item === operator[i]);
@@ -68,6 +69,7 @@ function findOperands(equation) {
     //        secondOperand = equation[operatorIndex + 1];
     //        console.log(secondOperand);
 
+function operate(firstOperand, operator, secondOperand) {
     let a = parseFloat(firstOperand);
     let b = parseFloat(secondOperand);
     if (operator === '+') {
@@ -86,29 +88,27 @@ function findOperands(equation) {
             resultDisplay.textContent = +(a / b).toFixed(5);
         }
     }
-    if (resultDisplay.textContent > 9999999999999) {
-        resultDisplay.textContent = "Result too large!";
+    if (resultDisplay.textContent.length > 14) {
+        resultDisplay.textContent = "Result too long!";
     }
     console.log(resultDisplay.textContent);
+    //inputDisplay.textContent = resultDisplay.textContent;
+    //console.log(inputDisplay.textContent);
+    //return resultDisplay.textContent;
     //equation[0] = resultDisplay.textContent;
     //console.log(equation[0]);
     //let newequation = equation.splice(3, 0);
-    equation.splice(0, 3, resultDisplay.textContent);
-    console.log(equation);
+    //equation = equation.splice(0, 3, resultDisplay.textContent);
+    //console.log(equation);
     //console.log(newequation);
     //equation = resultDisplay.textContent;
     //console.log(equation);
+    //equation = equation.splice(0, 3, resultDisplay.textContent);
 }
-
-//function operate(firstOperand, secondOperand) {
-//    parseInt(firstOperand);
-//    parseInt(secondOperand);
-//    if (operator === '+') {
-//        console.log(firstOperand + secondOperand);
-//    } else {
-//    console.log(typeof firstOperand)
-//    console.log(typeof secondOperand)
-//    }
+allClear.addEventListener('click', e => {
+    console.log('AC!');
+    inputDisplay.textContent = '0';
+})
 
 //const add = (a, b) => a + b;
 
