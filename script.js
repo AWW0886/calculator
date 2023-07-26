@@ -18,9 +18,9 @@ numberButton.forEach(elem => elem.addEventListener('click', e => {
     //console.log(e.target.textContent);
     //const key = e.target;
     if (inputDisplay.textContent === '0') {
-        inputDisplay.textContent = e.target.textContent;
+        inputDisplay.textContent = e.target.dataset.key;
     } else {
-        inputDisplay.textContent = inputDisplay.textContent + e.target.textContent;
+        inputDisplay.textContent = inputDisplay.textContent + e.target.dataset.key;
     };
     //let firstOperand = inputDisplay.textContent;
     //console.log(firstOperand);
@@ -36,9 +36,9 @@ operatorButton.forEach(elem => elem.addEventListener('click', e => {
     //let firstOperand = inputDisplay.textContent;
     //console.log(firstOperand);
     if (inputDisplay.textContent === '0') {
-        inputDisplay.textContent = e.target.textContent;
+        inputDisplay.textContent = e.target.dataset.key;
     } else {
-        inputDisplay.textContent = inputDisplay.textContent + e.target.textContent;
+        inputDisplay.textContent = inputDisplay.textContent + e.target.dataset.key;
     };
 }));
 
@@ -46,18 +46,19 @@ equalsButton.addEventListener('click', e => {
     console.log('Equals!')
     let equation = inputDisplay.textContent;
     console.log(equation);
-    operate(equation);
+    findOperands(equation);
 })
 
-function operate(equation) {
+function findOperands(equation) {
     equation = equation.split(' ');
     console.log(equation)
     //let operator = ['+', '-', 'x', '/'];
-    const firstOperand = equation[0];
+    let firstOperand = equation[0];
     console.log(firstOperand);
-    const operator = equation[1];
+    let operator = equation[1];
     console.log(operator);
-    const secondOperand = equation[2];
+    let secondOperand = equation[2];
+    console.log(secondOperand);
 
     //for (i = 0; i < 4; i++) {
         //while(equation.includes(operator[i])) {
@@ -65,18 +66,18 @@ function operate(equation) {
             //firstOperand = equation[operatorIndex - 1];
             //console.log(firstOperand);
     //        secondOperand = equation[operatorIndex + 1];
-            console.log(secondOperand);
+    //        console.log(secondOperand);
 
     let a = parseFloat(firstOperand);
     let b = parseFloat(secondOperand);
     if (operator === '+') {
-        resultDisplay.textContent = a + b;
+        resultDisplay.textContent = +(a + b).toFixed(5);
     }
     if (operator === '-') {
-        resultDisplay.textContent = a - b;
+        resultDisplay.textContent = +(a - b).toFixed(5);
     }
     if (operator === 'x') {
-        resultDisplay.textContent = a * b;
+        resultDisplay.textContent = +(a * b).toFixed(5);
     }
     if (operator === '/') {
         if (b === 0) {
@@ -89,6 +90,14 @@ function operate(equation) {
         resultDisplay.textContent = "Result too large!";
     }
     console.log(resultDisplay.textContent);
+    //equation[0] = resultDisplay.textContent;
+    //console.log(equation[0]);
+    //let newequation = equation.splice(3, 0);
+    equation.splice(0, 3, resultDisplay.textContent);
+    console.log(equation);
+    //console.log(newequation);
+    //equation = resultDisplay.textContent;
+    //console.log(equation);
 }
 
 //function operate(firstOperand, secondOperand) {
