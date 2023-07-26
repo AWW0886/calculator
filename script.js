@@ -46,11 +46,10 @@ equalsButton.addEventListener('click', e => {
     console.log('Equals!')
     let equation = inputDisplay.textContent;
     console.log(equation);
-    findOperands(equation);
-    //operate();
+    operate(equation);
 })
 
-function findOperands(equation) {
+function operate(equation) {
     equation = equation.split(' ');
     console.log(equation)
     //let operator = ['+', '-', 'x', '/'];
@@ -68,15 +67,28 @@ function findOperands(equation) {
     //        secondOperand = equation[operatorIndex + 1];
             console.log(secondOperand);
 
-    let a = parseInt(firstOperand);
-    let b = parseInt(secondOperand);
+    let a = parseFloat(firstOperand);
+    let b = parseFloat(secondOperand);
     if (operator === '+') {
-        console.log(a + b);
-        c = a + b;
-        console.log(c);
         resultDisplay.textContent = a + b;
-        //}
-    //}
+    }
+    if (operator === '-') {
+        resultDisplay.textContent = a - b;
+    }
+    if (operator === 'x') {
+        resultDisplay.textContent = a * b;
+    }
+    if (operator === '/') {
+        if (b === 0) {
+            resultDisplay.textContent = 'Can\'t do!';
+        } else {
+            resultDisplay.textContent = +(a / b).toFixed(5);
+        }
+    }
+    if (resultDisplay.textContent > 9999999999999) {
+        resultDisplay.textContent = "Result too large!";
+    }
+    console.log(resultDisplay.textContent);
 }
 
 //function operate(firstOperand, secondOperand) {
@@ -96,5 +108,3 @@ function findOperands(equation) {
 //const multiply = (a, b) => a * b;
 
 //const divide = (a, b) => a / b;
-
-}
