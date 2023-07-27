@@ -119,19 +119,19 @@ function operate(firstOperand, operator, secondOperand) {
     let a = parseFloat(firstOperand);
     let b = parseFloat(secondOperand);
     if (operator === '+') {
-        resultDisplay.textContent = +(a + b).toFixed(5);
+        resultDisplay.textContent = +(a + b).toFixed(3);
     }
     if (operator === '-') {
-        resultDisplay.textContent = +(a - b).toFixed(5);
+        resultDisplay.textContent = +(a - b).toFixed(3);
     }
     if (operator === 'x') {
-        resultDisplay.textContent = +(a * b).toFixed(5);
+        resultDisplay.textContent = +(a * b).toFixed(3);
     }
     if (operator === '/') {
         if (b === 0) {
             resultDisplay.textContent = 'Can\'t do!';
         } else {
-            resultDisplay.textContent = +(a / b).toFixed(5);
+            resultDisplay.textContent = +(a / b).toFixed(3);
         }
     }
     if (resultDisplay.textContent.length > 12) {
