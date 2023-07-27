@@ -109,6 +109,15 @@ function operate(firstOperand, operator, secondOperand) {
         prevEquationDisplay.textContent = (inputDisplay.textContent) + ' = ';
         inputDisplay.textContent = resultDisplay.textContent;
     }
+    console.log(resultDisplay.textContent.split(''));
+    let tempDisplay = resultDisplay.textContent.split('');
+    console.log(tempDisplay);
+    checkDisplayDecimal(tempDisplay, '.');
+//    let tempDisplay = resultDisplay.textContent.filter((v) => (v === value)).length;
+//    console.log(tempDisplay);
+//    if (tempDisplay === 1) {
+//        decimalButton.disabled = true;
+//    }
 }
 
 allClear.addEventListener('click', e => {
@@ -157,8 +166,15 @@ deleteButton.addEventListener('click', e => {
 function getDecimalCount(tempEquation, value) {
     let count = tempEquation.filter((v) => (v === value)).length;
     console.log(count);
-//    return count;
     if (count === 1) {
+        decimalButton.disabled = true;
+    }
+}
+
+function checkDisplayDecimal(tempDisplay, value) {
+    let check = tempDisplay.filter((v) => (v === value)).length;
+    console.log(check);
+    if (check === 1) {
         decimalButton.disabled = true;
     }
 }
