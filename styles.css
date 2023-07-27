@@ -1,18 +1,25 @@
 body {
-    background-color: whitesmoke;
+    /*background-color: whitesmoke;*/
+    /*background-image: url(img/crumpled_looseleaf_paper.jpg);
+    background-size: cover;*/
+    /*background-color: lightsalmon;*/
+    /*background: linear-gradient(to right, lightsalmon, whitesmoke, lightsalmon);*/
     margin-top: 50px;
+    font-family: Monaco;
 }
 
 #calc-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
-    border: 2.5px solid slategrey;
+    background-color: lightgrey;
+    border: 7.5px solid steelblue;
     border-radius: 10px;
-    width: 510px;
-    padding: 7.5px;
+    width: 505px;
+    padding: 15px;
     margin: auto;
+
+    box-shadow: 20px 20px 10px lightblue;
 }
 
 #button-container {
@@ -20,53 +27,57 @@ body {
 }
 
 button {
-    border-radius: 10px;
-    font-size: 24px;
+    background-color: lightseagreen;
+    border: 5px solid darkcyan;
+    color: white;
+    border-radius: 15px;
+    font-size: 34px;
     height: 100px;
     width: 100px;
-    margin: 1px;
+    margin: 2.5px;
+    font-family: Monaco;
 }
 
 button:hover {
-    background-color: darkgray;
-    color: white;
+    background-color: lightcyan;
+    color: grey;
 }
 
 [data-key="0"] {
-    width: 202px;
+    width: 204.5px;
 }
 
 .equals {
-    width: 202px;
+    width: 204.5px;
 }
 
 .input {
     height: 40px;
-    width: 496.5px;
+    width: 500px;
     background-color: darkslategrey;
-    border-width: 2.5px 2.5px 1.25px 2.5px;
-    border-color: grey;
+    border-width: 5px 5px 1.25px 5px;
+    border-color: lightskyblue;
     border-style: solid;
-    border-radius: 10px 10px 0 0;
+    border-radius: 15px 15px 0 0;
     font-size: 34px;
     color: whitesmoke;
     padding-top: 7.5px;
-    padding-bottom: 5px;
-    padding-left: 7.5px;
+    padding-bottom: 7.5px;
+    padding-left: 10px;
 }
 
 .second-input {
     height: 25px;
-    width: 494px;
+    width: 500px;
     background-color: darkslategrey;
-    border-width: 1.25px 2.5px 1.25px 2.5px;
-    border-color: grey;
+    border-width: 1.25px 5px 1.25px 5px;
+    border-color: lightskyblue;
     border-style: solid;
     /*border-radius: 10px 10px 0 0;*/
     font-size: 18px;
-    color: whitesmoke;
-    padding-top: 2.5px;
+    color: darkgrey;
     padding-left: 10px;
+    padding-top: 2.5px;
 
 }
 
@@ -74,16 +85,16 @@ button:hover {
     display: flex;
     justify-content: flex-end;
     height: 90px;
-    width: 499px;
+    width: 502.5px;
     background-color: darkslategrey;
-    border-width: 1.25px 2.5px 2.5px 2.5px;
-    border-color: grey;
+    border-width: 1.25px 5px 5px 5px;
+    border-color: lightskyblue;
     border-style: solid;
-    border-radius: 0 0 10px 10px;
-    font-size: 76px;
+    border-radius: 0 0 15px 15px;
+    font-size: 70px;
     color: whitesmoke;
-    margin-bottom: 1px;
+    margin-bottom: 5px;
     padding-top: 7.5px;
     padding-bottom: 2.5px;
-    padding-right: 5px;
+    padding-right: 7.5px;
 }
