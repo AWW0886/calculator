@@ -2,6 +2,7 @@ const calculator = document.querySelector('#calc-container');
 const allButtons = document.querySelector("#all-buttons");
 //const buttonContainer = document.querySelector('#button-container')
 const numberButton = document.querySelectorAll('.number');
+const decimalButton = document.querySelector('.decimal');
 const operatorButton = document.querySelectorAll('.operator');
 const allClear = document.querySelector('.all-clear');
 const deleteButton = calculator.querySelector('.delete');
@@ -21,7 +22,7 @@ numberButton.forEach(elem => elem.addEventListener('click', e => {
     //if (inputDisplay = equation) {
     //    secondInput.textContent = secondInput.textContent + e.target.dataset.key;
     //}
-    if (inputDisplay.textContent === '0') {
+    if (inputDisplay.textContent === '0' || inputDisplay.textContent === 'NaN') {
         inputDisplay.textContent = e.target.dataset.key;
     } else {
         inputDisplay.textContent = inputDisplay.textContent + e.target.dataset.key;
@@ -29,6 +30,16 @@ numberButton.forEach(elem => elem.addEventListener('click', e => {
     //let firstOperand = inputDisplay.textContent;
     //console.log(firstOperand);
 }));
+
+decimalButton.addEventListener('click', e => {
+    console.log('Decimal!');
+    if (inputDisplay.textContent === '0' || inputDisplay.textContent === 'NaN') {
+        inputDisplay.textContent = e.target.dataset.key;
+    } else {
+        inputDisplay.textContent = inputDisplay.textContent + e.target.dataset.key;
+    }
+    decimalButton.disabled = true;
+});
 //});
 
 //if (key.classList.contains('operator')) {
@@ -39,16 +50,24 @@ operatorButton.forEach(elem => elem.addEventListener('click', e => {
     console.log('Operator!');
     //let firstOperand = inputDisplay.textContent;
     //console.log(firstOperand);
-    if (inputDisplay.textContent === '0') {
+    //if (inputDisplay.textContent === 'NaN')
+    if (inputDisplay.textContent === '0' || inputDisplay.textContent === 'NaN') {
         inputDisplay.textContent = e.target.dataset.key;
     } else {
         inputDisplay.textContent = inputDisplay.textContent + e.target.dataset.key;
     };
-}));
+    decimalButton.disabled = false;
+    operatorButton.forEach(elem => {elem.disabled = true;
+})}));
 
 equalsButton.addEventListener('click', e => {
     console.log('Equals!')
     let equation = inputDisplay.textContent;
+    
+    //equation = equation.split('');
+    //console.log(getDecimalCount(equation, '.'));
+    //if (count >)
+
     console.log(equation);
     findOperands(equation);
     //operate(firstOperand, operator, secondOperand);
@@ -59,10 +78,25 @@ function findOperands(equation) {
     console.log(equation)
     let firstOperand = equation[0];
     console.log(firstOperand);
+    
     let operator = equation[1];
     console.log(operator);
     let secondOperand = equation[2];
     console.log(secondOperand);
+
+    equation = equation[0].split('');
+    console.log(equation);
+
+    console.log(getDecimalCount(equation, '.'))
+    //console.log(equation.join(''));
+    firstOperand = equation.join('');
+    console.log(firstOperand);
+    
+
+    //let operator = equation[1];
+    //console.log(operator);
+    //let secondOperand = equation[2];
+    //console.log(secondOperand);
     operate(firstOperand, operator, secondOperand);
 }
     //for (i = 0; i < 4; i++) {
@@ -77,19 +111,19 @@ function operate(firstOperand, operator, secondOperand) {
     let a = parseFloat(firstOperand);
     let b = parseFloat(secondOperand);
     if (operator === '+') {
-        resultDisplay.textContent = +(a + b).toFixed(5);
+        resultDisplay.textContent = +(a + b).toFixed(7);
     }
     if (operator === '-') {
-        resultDisplay.textContent = +(a - b).toFixed(5);
+        resultDisplay.textContent = +(a - b).toFixed(7);
     }
     if (operator === 'x') {
-        resultDisplay.textContent = +(a * b).toFixed(5);
+        resultDisplay.textContent = +(a * b).toFixed(7);
     }
     if (operator === '/') {
         if (b === 0) {
             resultDisplay.textContent = 'Can\'t do!';
         } else {
-            resultDisplay.textContent = +(a / b).toFixed(5);
+            resultDisplay.textContent = +(a / b).toFixed(7);
         }
     }
     if (resultDisplay.textContent.length > 14) {
@@ -128,12 +162,21 @@ deleteButton.addEventListener('click', e => {
     let slice;
     slice = inputDisplay.textContent.slice(-1);
     console.log(slice);
+    if (slice === '.') {
+        decimalButton.disabled = false;
+    }
     if (slice === ' ') {
-        inputDisplay.textContent = inputDisplay.textContent.slice(0, -3)
-    } else {
+        inputDisplay.textContent = inputDisplay.textContent.slice(0, -3);
+        operatorButton.forEach(elem => {elem.disabled = false;
+    })} else {
         inputDisplay.textContent = inputDisplay.textContent.slice(0, -1)
     }
 })
+
+function getDecimalCount(equation, value) {
+    let count = equation.filter((v) => (v === value)).length;
+    return count;
+}
 
 //const add = (a, b) => a + b;
 
