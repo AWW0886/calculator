@@ -101,7 +101,7 @@ function operate(firstOperand, operator, secondOperand) {
             resultDisplay.textContent = +(a / b).toFixed(3);
         }
     }
-    if (resultDisplay.textContent.length > 11) {
+    if (resultDisplay.textContent.length > 12) {
         resultDisplay.textContent = "Too long!";
         operatorButton.forEach(elem => {elem.disabled = true;
         });
