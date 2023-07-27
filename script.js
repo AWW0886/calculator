@@ -1,5 +1,4 @@
 const calculator = document.querySelector('#calc-container');
-const allButtons = document.querySelector("#all-buttons");
 const numberButton = document.querySelectorAll('.number');
 const decimalButton = document.querySelector('.decimal');
 const operatorButton = document.querySelectorAll('.operator');
@@ -19,7 +18,6 @@ numberButton.forEach(elem => elem.addEventListener('click', e => {
 }));
 
 decimalButton.addEventListener('click', e => {
-    console.log('Decimal!');
     if (inputDisplay.textContent === '0' || inputDisplay.textContent === 'NaN') {
         inputDisplay.textContent = e.target.dataset.key;
     } else {
@@ -29,7 +27,6 @@ decimalButton.addEventListener('click', e => {
 });
 
 operatorButton.forEach(elem => elem.addEventListener('click', e => {
-    console.log('Operator!');
     if (inputDisplay.textContent === '0' || inputDisplay.textContent === 'NaN') {
         inputDisplay.textContent = e.target.dataset.key;
     } else {
@@ -40,9 +37,7 @@ operatorButton.forEach(elem => elem.addEventListener('click', e => {
 })}));
 
 equalsButton.addEventListener('click', e => {
-    console.log('Equals!');
     let equation = inputDisplay.textContent;
-    console.log(equation);
     operatorButton.forEach(elem => {elem.disabled = false;
     });
     findOperands(equation);
@@ -50,13 +45,9 @@ equalsButton.addEventListener('click', e => {
 
 function findOperands(equation) {
     equation = equation.split(' ');
-    console.log(equation);
     let firstOperand = equation[0];
-    console.log(firstOperand);
     let operator = equation[1];
-    console.log(operator);
     let secondOperand = equation[2];
-    console.log(secondOperand);
     operate(firstOperand, operator, secondOperand);
 }
 
@@ -90,14 +81,11 @@ function operate(firstOperand, operator, secondOperand) {
         prevEquationDisplay.textContent = (inputDisplay.textContent) + ' = ';
         inputDisplay.textContent = resultDisplay.textContent;
     }
-    console.log(resultDisplay.textContent.split(''));
     let tempDisplay = resultDisplay.textContent.split('');
-    console.log(tempDisplay);
     checkDisplayDecimal(tempDisplay, '.');
 }
 
 allClear.addEventListener('click', e => {
-    console.log('AC!');
     inputDisplay.textContent = '0';
     prevEquationDisplay.textContent = ' ';
     resultDisplay.textContent = ' ';
@@ -107,10 +95,8 @@ allClear.addEventListener('click', e => {
 });
 
 deleteButton.addEventListener('click', e => {
-    console.log('DEL!');
     let slice;
     slice = inputDisplay.textContent.slice(-1);
-    console.log(slice);
     if (slice === 'N') {
         inputDisplay.textContent = inputDisplay.textContent.slice(0, -3);
     }
@@ -119,10 +105,8 @@ deleteButton.addEventListener('click', e => {
     }
     if (slice === ' ') {
         let tempEquation = inputDisplay.textContent.split('');
-        console.log(tempEquation)
         getDecimalCount(tempEquation, '.');
         inputDisplay.textContent = tempEquation.join('');
-        console.log(inputDisplay.textContent);
         inputDisplay.textContent = inputDisplay.textContent.slice(0, -3);
         operatorButton.forEach(elem => {elem.disabled = false;    
     });
@@ -133,7 +117,6 @@ deleteButton.addEventListener('click', e => {
 
 function getDecimalCount(tempEquation, value) {
     let count = tempEquation.filter((v) => (v === value)).length;
-    console.log(count);
     if (count === 1) {
         decimalButton.disabled = true;
     }
@@ -141,7 +124,6 @@ function getDecimalCount(tempEquation, value) {
 
 function checkDisplayDecimal(tempDisplay, value) {
     let check = tempDisplay.filter((v) => (v === value)).length;
-    console.log(check);
     if (check === 1) {
         decimalButton.disabled = true;
     }
