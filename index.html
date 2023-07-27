@@ -5,39 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-    <title>Calculator</title>
+    <title>A Simple Calculator</title>
 </head>
 <body>
     <div id="calc-container">
         <div class="input">0</div>
+        <div class="second-input"></div>
         <div class="result"></div>
-        <div id="all-buttons">
-            <div id="button-container">
-                <button class="number" data-key="7">7</button>
-                <button class="number" data-key="8">8</button>
-                <button class="number" data-key="9">9</button>
-                <button class="all-clear" data-key="AC">AC</button>
-                <button class="delete" data-key="delete">DEL</button>
-            </div>
-            <div id="button-container">
-                <button class="number" data-key="4">4</button>
-                <button class="number" data-key="5">5</button>
-                <button class="number" data-key="6">6</button>
-                <button class="operator" data-key=" / ">/</button>
-                <button class="operator" data-key=" x ">x</button>
-            </div>
-            <div id="button-container">   
-                <button class="number" data-key="1">1</button>
-                <button class="number" data-key="2">2</button>
-                <button class="number" data-key="3">3</button>
-                <button class="operator" data-key=" - ">-</button>
-                <button class="operator" data-key=" + ">+</button>
-            </div>
-            <div id="button-container">    
-                <button class="number" data-key="0">0</button>
-                <button class="number" data-key=".">.</button>
-                <button class="equals" data-key="=">=</button>
-            </div>
+        <div id="button-container">
+            <button class="number" data-key="7">7</button>
+            <button class="number" data-key="8">8</button>
+            <button class="number" data-key="9">9</button>
+            <button class="all-clear" data-key="AC">AC</button>
+            <button class="delete" data-key="delete">DEL</button>
+        </div>
+        <div id="button-container">
+            <button class="number" data-key="4">4</button>
+            <button class="number" data-key="5">5</button>
+            <button class="number" data-key="6">6</button>
+            <button class="operator" data-key=" / ">/</button>
+            <button class="operator" data-key=" x ">x</button>
+        </div>
+        <div id="button-container">   
+            <button class="number" data-key="1">1</button>
+            <button class="number" data-key="2">2</button>
+            <button class="number" data-key="3">3</button>
+            <button class="operator" data-key=" - ">-</button>
+            <button class="operator" data-key=" + ">+</button>
+        </div>
+        <div id="button-container">    
+            <button class="number" data-key="0">0</button>
+            <button class="decimal" data-key=".">.</button>
+            <button class="equals" data-key="=">=</button>
         </div>
     </div>
 </body>
