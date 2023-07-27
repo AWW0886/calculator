@@ -1,25 +1,19 @@
 body {
-    /*background-color: whitesmoke;*/
-    /*background-image: url(img/crumpled_looseleaf_paper.jpg);
-    background-size: cover;*/
-    /*background-color: lightsalmon;*/
-    /*background: linear-gradient(to right, lightsalmon, whitesmoke, lightsalmon);*/
-    margin-top: 50px;
     font-family: Monaco;
+    margin-top: 50px;
 }
 
 #calc-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: lightgrey;
+    background: linear-gradient(to right, lightgrey, grey);
     border: 7.5px solid steelblue;
     border-radius: 10px;
-    width: 505px;
-    padding: 15px;
-    margin: auto;
-
     box-shadow: 20px 20px 10px lightblue;
+    margin: auto;
+    padding: 15px;
+    width: 505px; 
 }
 
 #button-container {
@@ -27,19 +21,24 @@ body {
 }
 
 button {
-    background-color: lightseagreen;
+    background: linear-gradient(to right, seagreen, lightseagreen);
     border: 5px solid darkcyan;
-    color: white;
     border-radius: 15px;
+    color: white;
+    font-family: Monaco;
     font-size: 34px;
     height: 100px;
     width: 100px;
     margin: 2.5px;
-    font-family: Monaco;
 }
 
 button:hover {
-    background-color: lightcyan;
+    background: darkcyan;
+    color: white;
+}
+
+button[disabled] {
+    background: linear-gradient(to right, lightcyan, darkgrey);
     color: grey;
 }
 
@@ -52,49 +51,46 @@ button:hover {
 }
 
 .input {
+    background-color: darkslategrey;
+    border-color: lightskyblue;
+    border-radius: 15px 15px 0 0;
+    border-style: solid;
+    border-width: 5px 5px 1.25px 5px;
+    color: whitesmoke;
+    font-size: 34px;
     height: 40px;
     width: 500px;
-    background-color: darkslategrey;
-    border-width: 5px 5px 1.25px 5px;
-    border-color: lightskyblue;
-    border-style: solid;
-    border-radius: 15px 15px 0 0;
-    font-size: 34px;
-    color: whitesmoke;
     padding-top: 7.5px;
     padding-bottom: 7.5px;
     padding-left: 10px;
 }
 
 .second-input {
-    height: 25px;
-    width: 500px;
     background-color: darkslategrey;
-    border-width: 1.25px 5px 1.25px 5px;
     border-color: lightskyblue;
     border-style: solid;
-    /*border-radius: 10px 10px 0 0;*/
-    font-size: 18px;
+    border-width: 1.25px 5px 1.25px 5px;
     color: darkgrey;
-    padding-left: 10px;
+    font-size: 18px;
+    height: 25px;
+    width: 500px;
     padding-top: 2.5px;
-
+    padding-left: 10px;
 }
 
 .result {
     display: flex;
     justify-content: flex-end;
+    background-color: darkslategrey;
+    border-color: lightskyblue;
+    border-radius: 0 0 15px 15px;
+    border-style: solid;
+    border-width: 1.25px 5px 5px 5px;
+    color: whitesmoke;
+    font-size: 70px;
     height: 90px;
     width: 502.5px;
-    background-color: darkslategrey;
-    border-width: 1.25px 5px 5px 5px;
-    border-color: lightskyblue;
-    border-style: solid;
-    border-radius: 0 0 15px 15px;
-    font-size: 70px;
-    color: whitesmoke;
     margin-bottom: 5px;
     padding-top: 7.5px;
-    padding-bottom: 2.5px;
     padding-right: 7.5px;
 }
