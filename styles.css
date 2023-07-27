@@ -88,10 +88,11 @@ button[disabled] {
     border-style: solid;
     border-width: 1.25px 5px 5px 5px;
     color: whitesmoke;
-    font-size: 70px;
+    font-size: 68px;
     height: 90px;
     width: 502.5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding-top: 7.5px;
+    padding-bottom: 5px;
     padding-right: 7.5px;
 }
