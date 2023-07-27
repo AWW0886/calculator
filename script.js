@@ -22,7 +22,7 @@ decimalButton.addEventListener('click', e => {
         inputDisplay.textContent = e.target.dataset.key;
     } else {
         inputDisplay.textContent = inputDisplay.textContent + e.target.dataset.key;
-    }
+    };
     decimalButton.disabled = true;
 });
 
@@ -43,13 +43,43 @@ equalsButton.addEventListener('click', e => {
     findOperands(equation);
 });
 
+allClear.addEventListener('click', e => {
+    inputDisplay.textContent = '0';
+    prevEquationDisplay.textContent = ' ';
+    resultDisplay.textContent = ' ';
+    operatorButton.forEach(elem => {elem.disabled = false;
+    decimalButton.disabled = false;
+    });
+});
+
+deleteButton.addEventListener('click', e => {
+    let slice;
+    slice = inputDisplay.textContent.slice(-1);
+    if (slice === 'N') {
+        inputDisplay.textContent = inputDisplay.textContent.slice(0, -3);
+    }
+    if (slice === '.') {
+        decimalButton.disabled = false;
+    }
+    if (slice === ' ') {
+        let tempEquation = inputDisplay.textContent.split('');
+        getDecimalCount(tempEquation, '.');
+        inputDisplay.textContent = tempEquation.join('');
+        inputDisplay.textContent = inputDisplay.textContent.slice(0, -3);
+        operatorButton.forEach(elem => {elem.disabled = false;    
+        });
+    } else {
+        inputDisplay.textContent = inputDisplay.textContent.slice(0, -1)
+    };
+});
+
 function findOperands(equation) {
     equation = equation.split(' ');
     let firstOperand = equation[0];
     let operator = equation[1];
     let secondOperand = equation[2];
     operate(firstOperand, operator, secondOperand);
-}
+};
 
 function operate(firstOperand, operator, secondOperand) {
     let a = parseFloat(firstOperand);
@@ -83,44 +113,14 @@ function operate(firstOperand, operator, secondOperand) {
     }
     let tempDisplay = resultDisplay.textContent.split('');
     checkDisplayDecimal(tempDisplay, '.');
-}
-
-allClear.addEventListener('click', e => {
-    inputDisplay.textContent = '0';
-    prevEquationDisplay.textContent = ' ';
-    resultDisplay.textContent = ' ';
-    operatorButton.forEach(elem => {elem.disabled = false;
-    decimalButton.disabled = false;
-    });
-});
-
-deleteButton.addEventListener('click', e => {
-    let slice;
-    slice = inputDisplay.textContent.slice(-1);
-    if (slice === 'N') {
-        inputDisplay.textContent = inputDisplay.textContent.slice(0, -3);
-    }
-    if (slice === '.') {
-        decimalButton.disabled = false;
-    }
-    if (slice === ' ') {
-        let tempEquation = inputDisplay.textContent.split('');
-        getDecimalCount(tempEquation, '.');
-        inputDisplay.textContent = tempEquation.join('');
-        inputDisplay.textContent = inputDisplay.textContent.slice(0, -3);
-        operatorButton.forEach(elem => {elem.disabled = false;    
-    });
-    } else {
-        inputDisplay.textContent = inputDisplay.textContent.slice(0, -1)
-    };
-});
+};
 
 function getDecimalCount(tempEquation, value) {
     let count = tempEquation.filter((v) => (v === value)).length;
     if (count === 1) {
         decimalButton.disabled = true;
-    }
-}
+    };
+};
 
 function checkDisplayDecimal(tempDisplay, value) {
     let check = tempDisplay.filter((v) => (v === value)).length;
@@ -128,5 +128,5 @@ function checkDisplayDecimal(tempDisplay, value) {
         decimalButton.disabled = true;
     } else {
         decimalButton.disabled = false;
-    }
-}
+    };
+};
