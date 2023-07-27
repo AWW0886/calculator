@@ -126,5 +126,7 @@ function checkDisplayDecimal(tempDisplay, value) {
     let check = tempDisplay.filter((v) => (v === value)).length;
     if (check === 1) {
         decimalButton.disabled = true;
+    } else {
+        decimalButton.disabled = false;
     }
 }
