@@ -119,27 +119,31 @@ function operate(firstOperand, operator, secondOperand) {
     let a = parseFloat(firstOperand);
     let b = parseFloat(secondOperand);
     if (operator === '+') {
-        resultDisplay.textContent = +(a + b).toFixed(7);
+        resultDisplay.textContent = +(a + b).toFixed(5);
     }
     if (operator === '-') {
-        resultDisplay.textContent = +(a - b).toFixed(7);
+        resultDisplay.textContent = +(a - b).toFixed(5);
     }
     if (operator === 'x') {
-        resultDisplay.textContent = +(a * b).toFixed(7);
+        resultDisplay.textContent = +(a * b).toFixed(5);
     }
     if (operator === '/') {
         if (b === 0) {
             resultDisplay.textContent = 'Can\'t do!';
         } else {
-            resultDisplay.textContent = +(a / b).toFixed(7);
+            resultDisplay.textContent = +(a / b).toFixed(5);
         }
     }
-    if (resultDisplay.textContent.length > 14) {
+    if (resultDisplay.textContent.length > 12) {
         resultDisplay.textContent = "Result too long!";
+        operatorButton.forEach(elem => {elem.disabled = true;
+        })
+        return;
+    } else {
+        console.log(resultDisplay.textContent);
+        prevEquationDisplay.textContent = (inputDisplay.textContent) + ' = ';
+        inputDisplay.textContent = resultDisplay.textContent;
     }
-    console.log(resultDisplay.textContent);
-    prevEquationDisplay.textContent = (inputDisplay.textContent) + ' = ';
-    inputDisplay.textContent = resultDisplay.textContent;
     //console.log(typeof resultDisplay.textContent);
     //secondInput.textContent = resultDisplay.textContent;
     //console.log(typeof secondInput.textContent);
@@ -158,6 +162,7 @@ function operate(firstOperand, operator, secondOperand) {
     //console.log(equation);
     //equation = equation.splice(0, 3, resultDisplay.textContent);
 }
+
 allClear.addEventListener('click', e => {
     console.log('AC!');
     inputDisplay.textContent = '0';
