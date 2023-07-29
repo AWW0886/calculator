@@ -9,3 +9,6 @@ Bug with the decimal button enabling after deletion of operator even though ther
 
 JULY update #3:
 I think it's done! Very simple calculator, as directed.  Perhaps in the future, will add +/- so I can multiple with a negative number.  I also would like to add keyboard support, at least with the numbers.  Got to try out new things in CSS such as box-shadow and linear-gradient.  Happy overall and feel good about submitting!
+
+JULY quick update #4:
+Decided to trial out more blue, specifically with the keys.  Kind of feeling like it's too blue now...  I'll give it some time...
