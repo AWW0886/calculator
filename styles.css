@@ -24,6 +24,7 @@ body {
 button {
     background: linear-gradient(to left, lightblue, steelblue);
     /*background: linear-gradient(to right, lightgrey, grey);*/
+    /*background: linear-gradient(to right, lightseagreen, seagreen);*/
     border: 5px solid darkcyan;
     border-radius: 15px;
     color: white;
