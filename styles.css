@@ -11,7 +11,8 @@ body {
     background: linear-gradient(to right, lightgrey, grey);
     border: 7.5px solid steelblue;
     border-radius: 10px;
-    box-shadow: 20px 20px 10px lightblue;
+    /*box-shadow: 20px 20px 10px gainsboro;*/
+    outline: 2px solid dimgrey;
     margin: auto;
     padding: 15px;
     width: 505px; 
